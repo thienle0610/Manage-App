@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Manage App</string>
+    <string name="expenses_report">EXPENSES REPORT</string>
+    <string name="note">NOTE</string>
 </resources>
