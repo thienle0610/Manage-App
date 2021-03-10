@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ManageApp">
-        <activity android:name=".income"></activity>
+        <activity
+            android:name=".CreateNotes"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".Notes"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".income" />
         <activity android:name=".adding" />
         <activity android:name=".MainActivity">
             <intent-filter>

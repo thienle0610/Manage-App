@@ -2,4 +2,9 @@
     <string name="app_name">Manage App</string>
     <string name="expenses_report">EXPENSES REPORT</string>
     <string name="note">NOTE</string>
+    <string name="my_notes">My Notes</string>
+    <string name="search_note">Search Note</string>
+    <string name="note_title">Note Title</string>
+    <string name="note_subtitle">Note Subtitle</string>
+    <string name="type_note_here">Type Note Here</string>
 </resources>
