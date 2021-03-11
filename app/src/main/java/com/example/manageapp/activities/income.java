@@ -1,8 +1,10 @@
-package com.example.manageapp;
+package com.example.manageapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.manageapp.R;
 
 public class income extends AppCompatActivity {
 
