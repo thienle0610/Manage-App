@@ -1,12 +1,12 @@
 package com.example.manageapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-
 import com.example.manageapp.R;
+
+
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,8 +17,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void sendNote(View v){
-        Intent in = new Intent(this, Notes.class);
-        startActivity(in);
-    }
+
 }
