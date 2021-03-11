@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.AsyncQueryHandler;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +30,8 @@ public class CreateNotes extends AppCompatActivity {
 
     private EditText inputNoteTitle, inputNoteSubtitle, inputNoteText;
     private TextView textDateTime;
+    private String selectedNoteColors;
+    private View viewSubtitleIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,7 @@ public class CreateNotes extends AppCompatActivity {
         inputNoteSubtitle = findViewById(R.id.inputNoteSubtitle);
         inputNoteText = findViewById(R.id.inputNote);
         textDateTime = findViewById(R.id.textDateTime);
+        viewSubtitleIndicator = findViewById(R.id.viewSubtitleIndicator);
 
         textDateTime.setText(
                 new SimpleDateFormat("EEEE, dd MMMM yyyy HH:mm a", Locale.getDefault())
@@ -50,7 +55,10 @@ public class CreateNotes extends AppCompatActivity {
         ImageView imageSave = findViewById(R.id.imageSave);
         imageSave.setOnClickListener(v -> saveNote());
 
+        selectedNoteColors = "#F778A1";
+
         initMiscellaneous();
+        setSubtitleIndicatorColor();
     }
 
 
@@ -70,7 +78,7 @@ public class CreateNotes extends AppCompatActivity {
         note.setSubtitle(inputNoteSubtitle.getText().toString());
         note.setNoteText(inputNoteText.getText().toString());
         note.setDateTime((textDateTime.getText().toString()));
-        //note.setColor(selectedNoteColors);
+        note.setColor(selectedNoteColors);
 
         @SuppressLint("StaticFieldLeak")
         class SaveNoteTask extends AsyncTask<Void, Void, Void> {
@@ -101,5 +109,93 @@ public class CreateNotes extends AppCompatActivity {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             }
         });
+
+        final ImageView imageColor1 = layoutMiscellaneous.findViewById(R.id.imageColor1);
+        final ImageView imageColor2 = layoutMiscellaneous.findViewById(R.id.imageColor2);
+        final ImageView imageColor3 = layoutMiscellaneous.findViewById(R.id.imageColor3);
+        final ImageView imageColor4 = layoutMiscellaneous.findViewById(R.id.imageColor4);
+        final ImageView imageColor5 = layoutMiscellaneous.findViewById(R.id.imageColor5);
+        final ImageView imageColor6 = layoutMiscellaneous.findViewById(R.id.imageColor6);
+
+        layoutMiscellaneous.findViewById(R.id.viewColor1).setOnClickListener(v -> {
+            selectedNoteColors="#F778A1";
+            imageColor1.setImageResource(R.drawable.ic_done);
+            imageColor2.setImageResource(0);
+            imageColor3.setImageResource(0);
+            imageColor4.setImageResource(0);
+            imageColor5.setImageResource(0);
+            imageColor6.setImageResource(0);
+            setSubtitleIndicatorColor();
+
+        });
+
+        layoutMiscellaneous.findViewById(R.id.viewColor2).setOnClickListener(v -> {
+            selectedNoteColors="#98FF98";
+            imageColor1.setImageResource(0);
+            imageColor2.setImageResource(R.drawable.ic_done);
+            imageColor3.setImageResource(0);
+            imageColor4.setImageResource(0);
+            imageColor5.setImageResource(0);
+            imageColor6.setImageResource(0);
+            setSubtitleIndicatorColor();
+
+        });
+
+        layoutMiscellaneous.findViewById(R.id.viewColor3).setOnClickListener(v -> {
+            selectedNoteColors="#9E7BFF";
+            imageColor1.setImageResource(0);
+            imageColor2.setImageResource(0);
+            imageColor3.setImageResource(R.drawable.ic_done);
+            imageColor4.setImageResource(0);
+            imageColor5.setImageResource(0);
+            imageColor6.setImageResource(0);
+            setSubtitleIndicatorColor();
+
+        });
+
+        layoutMiscellaneous.findViewById(R.id.viewColor4).setOnClickListener(v -> {
+            selectedNoteColors="#8A4117";
+            imageColor1.setImageResource(0);
+            imageColor2.setImageResource(0);
+            imageColor3.setImageResource(0);
+            imageColor4.setImageResource(R.drawable.ic_done);
+            imageColor5.setImageResource(0);
+            imageColor6.setImageResource(0);
+            setSubtitleIndicatorColor();
+
+        });
+
+        layoutMiscellaneous.findViewById(R.id.viewColor5).setOnClickListener(v -> {
+            selectedNoteColors="#F75D59";
+            imageColor1.setImageResource(0);
+            imageColor2.setImageResource(0);
+            imageColor3.setImageResource(0);
+            imageColor4.setImageResource(0);
+            imageColor5.setImageResource(R.drawable.ic_done);
+            imageColor6.setImageResource(0);
+            setSubtitleIndicatorColor();
+
+        });
+
+        layoutMiscellaneous.findViewById(R.id.viewColor6).setOnClickListener(v -> {
+            selectedNoteColors="#FDD017";
+            imageColor1.setImageResource(0);
+            imageColor2.setImageResource(0);
+            imageColor3.setImageResource(0);
+            imageColor4.setImageResource(0);
+            imageColor5.setImageResource(0);
+            imageColor6.setImageResource(R.drawable.ic_done);
+            setSubtitleIndicatorColor();
+
+        });
+
+    }
+
+
+
+
+    private void setSubtitleIndicatorColor(){
+        GradientDrawable gradientDrawable = (GradientDrawable) viewSubtitleIndicator.getBackground();
+        gradientDrawable.setColor(Color.parseColor(selectedNoteColors));
     }
 }
