@@ -10,12 +10,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.manageapp.R;
 import com.example.manageapp.database.NoteDatabase;
 import com.example.manageapp.entities.Note;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,8 +49,9 @@ public class CreateNotes extends AppCompatActivity {
 
         ImageView imageSave = findViewById(R.id.imageSave);
         imageSave.setOnClickListener(v -> saveNote());
-    }
 
+        initMiscellaneous();
+    }
 
 
     private void saveNote() {
@@ -72,13 +75,12 @@ public class CreateNotes extends AppCompatActivity {
         @SuppressLint("StaticFieldLeak")
         class SaveNoteTask extends AsyncTask<Void, Void, Void> {
 
-            protected Void doInBackground(Void... voids){
+            protected Void doInBackground(Void... voids) {
                 NoteDatabase.getNoteDatabase(getApplicationContext()).noteDao().insertNote(note);
                 return null;
             }
 
-            protected void onPostExecute(Void aVoid)
-            {
+            protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
                 Intent intent = new Intent();
                 setResult(RESULT_OK, intent);
@@ -87,5 +89,17 @@ public class CreateNotes extends AppCompatActivity {
         }
 
         new SaveNoteTask().execute();
+    }
+
+    private void initMiscellaneous() {
+        final LinearLayout layoutMiscellaneous = findViewById(R.id.layoutMiscellaneous);
+        final BottomSheetBehavior<LinearLayout> bottomSheetBehavior = BottomSheetBehavior.from(layoutMiscellaneous);
+        layoutMiscellaneous.findViewById(R.id.textMiscellaneous).setOnClickListener(v -> {
+            if (bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            } else {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        });
     }
 }
