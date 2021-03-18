@@ -16,17 +16,20 @@ import com.example.manageapp.R;
 import com.example.manageapp.adapters.NoteAdapter;
 import com.example.manageapp.database.NoteDatabase;
 import com.example.manageapp.entities.Note;
+import com.example.manageapp.lists.NoteLists;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("ALL")
-public class NotesMainActivity extends AppCompatActivity {
+public class NotesMainActivity extends AppCompatActivity implements NoteLists {
 
     public static final int REQUEST_CODE_ADD_NOTE = 1;
+    public static final int REQUEST_CODE_UPDATE_NOTE = 2;
     private RecyclerView notesRecyclerView;
     private List<Note> noteList;
     private NoteAdapter noteAdapter;
+    private int noteClickedPosition= -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +48,22 @@ public class NotesMainActivity extends AppCompatActivity {
         );
 
         noteList = new ArrayList<>();
-        noteAdapter = new NoteAdapter(noteList);
+        noteAdapter = new NoteAdapter(noteList, this);
         notesRecyclerView.setAdapter(noteAdapter);
 
         getNote();
     }
+
+    @Override
+    public void onNoteClicked(Note note, int position) {
+        noteClickedPosition = position;
+        Intent intent = new Intent(getApplicationContext(), CreateNotes.class);
+        intent.putExtra("isViewOrUpdate", true);
+        intent.putExtra("note", note);
+        startActivityForResult(intent, REQUEST_CODE_UPDATE_NOTE);
+
+    }
+
     public void sendNote(View v){
         Intent in = new Intent(this, NotesMainActivity.class);
         startActivity(in);

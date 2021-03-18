@@ -32,6 +32,7 @@ public class CreateNotes extends AppCompatActivity {
     private TextView textDateTime;
     private String selectedNoteColors;
     private View viewSubtitleIndicator;
+    private Note alreadyAvailableNote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,10 +58,22 @@ public class CreateNotes extends AppCompatActivity {
 
         selectedNoteColors = "#F778A1";
 
+        if(getIntent().getBooleanExtra("isViewOrUpdate", false)){
+            alreadyAvailableNote = (Note) getIntent().getSerializableExtra("note");
+            setViewOrUpdateNote();
+        }
+
         initMiscellaneous();
         setSubtitleIndicatorColor();
     }
 
+    private void setViewOrUpdateNote(){
+        inputNoteTitle.setText(alreadyAvailableNote.getTitle());
+        inputNoteSubtitle.setText(alreadyAvailableNote.getSubtitle());
+        inputNoteText.setText(alreadyAvailableNote.getNoteText());
+        textDateTime.setText(alreadyAvailableNote.getDateTime());
+
+    }
 
     private void saveNote() {
         if (inputNoteTitle.getText().toString().trim().isEmpty()) {
@@ -80,6 +93,11 @@ public class CreateNotes extends AppCompatActivity {
         note.setDateTime((textDateTime.getText().toString()));
         note.setColor(selectedNoteColors);
 
+
+        if(alreadyAvailableNote != null){
+            note.setUid(alreadyAvailableNote.getUid());
+        }
+        
         @SuppressLint("StaticFieldLeak")
         class SaveNoteTask extends AsyncTask<Void, Void, Void> {
 
@@ -118,7 +136,7 @@ public class CreateNotes extends AppCompatActivity {
         final ImageView imageColor6 = layoutMiscellaneous.findViewById(R.id.imageColor6);
 
         layoutMiscellaneous.findViewById(R.id.viewColor1).setOnClickListener(v -> {
-            selectedNoteColors="#F778A1";
+            selectedNoteColors = "#F778A1";
             imageColor1.setImageResource(R.drawable.ic_done);
             imageColor2.setImageResource(0);
             imageColor3.setImageResource(0);
@@ -130,7 +148,7 @@ public class CreateNotes extends AppCompatActivity {
         });
 
         layoutMiscellaneous.findViewById(R.id.viewColor2).setOnClickListener(v -> {
-            selectedNoteColors="#98FF98";
+            selectedNoteColors = "#98FF98";
             imageColor1.setImageResource(0);
             imageColor2.setImageResource(R.drawable.ic_done);
             imageColor3.setImageResource(0);
@@ -142,7 +160,7 @@ public class CreateNotes extends AppCompatActivity {
         });
 
         layoutMiscellaneous.findViewById(R.id.viewColor3).setOnClickListener(v -> {
-            selectedNoteColors="#9E7BFF";
+            selectedNoteColors = "#9E7BFF";
             imageColor1.setImageResource(0);
             imageColor2.setImageResource(0);
             imageColor3.setImageResource(R.drawable.ic_done);
@@ -154,7 +172,7 @@ public class CreateNotes extends AppCompatActivity {
         });
 
         layoutMiscellaneous.findViewById(R.id.viewColor4).setOnClickListener(v -> {
-            selectedNoteColors="#8A4117";
+            selectedNoteColors = "#8A4117";
             imageColor1.setImageResource(0);
             imageColor2.setImageResource(0);
             imageColor3.setImageResource(0);
@@ -166,7 +184,7 @@ public class CreateNotes extends AppCompatActivity {
         });
 
         layoutMiscellaneous.findViewById(R.id.viewColor5).setOnClickListener(v -> {
-            selectedNoteColors="#F75D59";
+            selectedNoteColors = "#F75D59";
             imageColor1.setImageResource(0);
             imageColor2.setImageResource(0);
             imageColor3.setImageResource(0);
@@ -178,7 +196,7 @@ public class CreateNotes extends AppCompatActivity {
         });
 
         layoutMiscellaneous.findViewById(R.id.viewColor6).setOnClickListener(v -> {
-            selectedNoteColors="#FDD017";
+            selectedNoteColors = "#FDD017";
             imageColor1.setImageResource(0);
             imageColor2.setImageResource(0);
             imageColor3.setImageResource(0);
@@ -189,8 +207,26 @@ public class CreateNotes extends AppCompatActivity {
 
         });
 
+        if (alreadyAvailableNote != null && alreadyAvailableNote.getColor() != null && !alreadyAvailableNote.getColor().trim().isEmpty()) {
+            switch (alreadyAvailableNote.getColor()) {
+                case "#98FF98":
+                    layoutMiscellaneous.findViewById(R.id.viewColor2).performClick();
+                    break;
+                case "#9E7BFF":
+                    layoutMiscellaneous.findViewById(R.id.viewColor3).performClick();
+                    break;
+                case "#8A4117":
+                    layoutMiscellaneous.findViewById(R.id.viewColor4).performClick();
+                    break;
+                case "#F75D59":
+                    layoutMiscellaneous.findViewById(R.id.viewColor5).performClick();
+                    break;
+                case "#FDD017":
+                    layoutMiscellaneous.findViewById(R.id.viewColor6).performClick();
+                    break;
+            }
+        }
     }
-
 
 
 

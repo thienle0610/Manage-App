@@ -13,15 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.manageapp.R;
 import com.example.manageapp.entities.Note;
+import com.example.manageapp.lists.NoteLists;
 
 import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder> {
 
     private final List<Note> notes;
+    private NoteLists noteLists;
 
-    public NoteAdapter(List<Note> notes) {
+    public NoteAdapter(List<Note> notes, NoteLists noteLists) {
         this.notes = notes;
+        this.noteLists = noteLists;
     }
 
 
@@ -41,6 +44,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     @Override
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
         holder.setNote(notes.get(position));
+        holder.layoutNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                noteLists.onNoteClicked(notes.get(position), position);
+            }
+        });
     }
 
     @Override
