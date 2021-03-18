@@ -13,18 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.manageapp.R;
 import com.example.manageapp.entities.Note;
-import com.example.manageapp.lists.NoteLists;
+import com.example.manageapp.lists.NoteListsView;
 
 import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder> {
 
     private final List<Note> notes;
-    private NoteLists noteLists;
+    private NoteListsView noteListsView;
 
-    public NoteAdapter(List<Note> notes, NoteLists noteLists) {
+    public NoteAdapter(List<Note> notes, NoteListsView noteListsView) {
         this.notes = notes;
-        this.noteLists = noteLists;
+        this.noteListsView = noteListsView;
     }
 
 
@@ -47,7 +47,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.layoutNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                noteLists.onNoteClicked(notes.get(position), position);
+                noteListsView.onNoteClicked(notes.get(position), position);
             }
         });
     }

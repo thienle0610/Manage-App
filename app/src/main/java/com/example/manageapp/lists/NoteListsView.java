@@ -2,6 +2,6 @@ package com.example.manageapp.lists;
 
 import com.example.manageapp.entities.Note;
 
-public interface NoteLists {
+public interface NoteListsView {
     void onNoteClicked(Note note, int position);}
 
