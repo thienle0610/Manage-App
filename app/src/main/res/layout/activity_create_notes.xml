@@ -152,5 +152,5 @@
 
     </ScrollView>
 
-    <include layout="@layout/layout_miscellaneous"/>
+    <include layout="@layout/layout_palette"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
