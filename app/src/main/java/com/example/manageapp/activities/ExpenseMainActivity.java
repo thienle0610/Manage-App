@@ -20,4 +20,9 @@ public class ExpenseMainActivity extends AppCompatActivity {
         Intent in = new Intent(this, ExpenseMainActivity.class);
         startActivity(in);
     }
+
+    public void displayTracker(View view) {
+        Intent in = new Intent(this, ExpenseAndIncome.class);
+        startActivity(in);
+    }
 }
