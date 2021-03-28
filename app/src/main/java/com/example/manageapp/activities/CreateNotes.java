@@ -3,7 +3,6 @@ package com.example.manageapp.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.content.AsyncQueryHandler;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
@@ -63,7 +62,7 @@ public class CreateNotes extends AppCompatActivity {
             setViewOrUpdateNote();
         }
 
-        initMiscellaneous();
+        initPalette();
         setSubtitleIndicatorColor();
     }
 
@@ -117,10 +116,10 @@ public class CreateNotes extends AppCompatActivity {
         new SaveNoteTask().execute();
     }
 
-    private void initMiscellaneous() {
-        final LinearLayout layoutMiscellaneous = findViewById(R.id.layoutMiscellaneous);
+    private void initPalette() {
+        final LinearLayout layoutMiscellaneous = findViewById(R.id.layoutPalette);
         final BottomSheetBehavior<LinearLayout> bottomSheetBehavior = BottomSheetBehavior.from(layoutMiscellaneous);
-        layoutMiscellaneous.findViewById(R.id.textMiscellaneous).setOnClickListener(v -> {
+        layoutMiscellaneous.findViewById(R.id.textPalette).setOnClickListener(v -> {
             if (bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
             } else {
