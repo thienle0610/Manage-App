@@ -69,7 +69,6 @@
                 android:layout_height="35dp"
                 android:contentDescription="@string/app_name"
                 android:padding="10dp"
-                android:src="@drawable/ic_done"
                 app:tint="@color/black" />
 
         </FrameLayout>
@@ -91,7 +90,6 @@
                 android:layout_height="35dp"
                 android:contentDescription="@string/app_name"
                 android:padding="10dp"
-                android:src="@drawable/ic_done"
                 app:tint="@color/black" />
 
         </FrameLayout>
@@ -113,7 +111,6 @@
                 android:layout_height="35dp"
                 android:contentDescription="@string/app_name"
                 android:padding="10dp"
-                android:src="@drawable/ic_done"
                 app:tint="@color/black" />
 
         </FrameLayout>
@@ -135,7 +132,6 @@
                 android:layout_height="35dp"
                 android:contentDescription="@string/app_name"
                 android:padding="10dp"
-                android:src="@drawable/ic_done"
                 app:tint="@color/black" />
 
         </FrameLayout>
@@ -157,7 +153,6 @@
                 android:layout_height="35dp"
                 android:contentDescription="@string/app_name"
                 android:padding="10dp"
-                android:src="@drawable/ic_done"
                 app:tint="@color/black" />
 
         </FrameLayout>
