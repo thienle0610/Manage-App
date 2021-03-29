@@ -6,35 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.ExpenseMainActivity">
 
-    <LinearLayout
-        android:layout_width="367dp"
-        android:layout_height="126dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109">
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="sans-serif-medium"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="10dp"
-            android:paddingStart="10dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="10dp"
-            android:text="Expense Tracker"
-            android:textAlignment="center"
-            android:textSize="30sp" />
-
-    </LinearLayout>
-
     <Button
         android:id="@+id/addExpenseBtn"
         android:layout_width="wrap_content"
@@ -54,10 +25,14 @@
     <fragment
         android:id="@+id/fragment"
         android:name="com.example.manageapp.activities.ExpenseList"
-        android:layout_width="345dp"
-        android:layout_height="261dp"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="279dp" />
+        android:layout_width="411dp"
+        android:layout_height="591dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
