@@ -12,6 +12,7 @@ local.properties
 .idea
 build.gradle
 settings.gradle
+*.bin
 
 build.gradle
 build
