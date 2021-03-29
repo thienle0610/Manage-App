@@ -31,9 +31,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void displayTracker (View view){
-        Intent intent = new Intent(this, ExpenseMainActivity.class);
-        startActivity(intent);
-    }
+
 
 }
