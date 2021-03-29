@@ -51,5 +51,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.928" />
 
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.manageapp.activities.ExpenseList"
+        android:layout_width="345dp"
+        android:layout_height="261dp"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="279dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
