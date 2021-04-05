@@ -43,7 +43,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Income" />
+            android:text="Income"
+            android:onClick="displayincome"/>
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

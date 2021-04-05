@@ -20,4 +20,9 @@ public class ExpenseAndIncome extends AppCompatActivity {
         Intent intent = new Intent(this, ExpenseForm.class);
         startActivity(intent);
     }
+
+    public void displayincome(View view) {
+        Intent intent2 = new Intent(this, income.class);
+        startActivity(intent2);
+    }
 }
