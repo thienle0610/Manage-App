@@ -3,6 +3,8 @@ package com.example.manageapp.activities;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +16,12 @@ import android.view.ViewGroup;
 
 import com.example.manageapp.R;
 import com.example.manageapp.activities.dummy.DummyContent;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 /**
  * A fragment representing a list of Items.
@@ -65,7 +73,16 @@ public class ExpenseList extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS));
+            DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
+            List<CustomerModel> customerModelList = dataBaseHelper.getEveryone();
+            List<DummyContent.DummyItem> dummyItemList = new ArrayList<>();
+            for (int i = 0; i < customerModelList.size(); i++)
+            {
+                CustomerModel customerModel = customerModelList.get(i);
+                DummyContent.DummyItem dummyItem = new DummyContent.DummyItem("" + customerModel.getCustomerID(), customerModel.getName(), customerModel.getCategory(), "" + customerModel.getAmount(), "" + customerModel.getDay() + "/" + customerModel.getMonth() + "/" + customerModel.getYear());
+                dummyItemList.add(dummyItem);
+            }
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(dummyItemList));
         }
         return view;
     }

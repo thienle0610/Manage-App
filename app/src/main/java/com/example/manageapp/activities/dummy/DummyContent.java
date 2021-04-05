@@ -24,11 +24,6 @@ public class DummyContent {
 
     private static final int COUNT = 25;
 
-    static {
-        addItem(new DummyItem("1", "Haha", "food", "06/10/2001"));
-        addItem(new DummyItem("2", "Hoho", "clothes", "07/10/2001"));
-    }
-
     private static void addItem(DummyItem item) {
         ITEMS.add(item);
     }
@@ -49,12 +44,14 @@ public class DummyContent {
         public final String id;
         public final String content;
         public final String category;
+        public final String amount;
         public final String date;
 
-        public DummyItem(String id, String content, String category, String date) {
+        public DummyItem(String id, String content, String category, String amount ,String date) {
             this.id = id;
             this.content = content;
             this.category = category;
+            this.amount = amount;
             this.date = date;
         }
 

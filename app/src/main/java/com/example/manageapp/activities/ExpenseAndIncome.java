@@ -16,4 +16,8 @@ public class ExpenseAndIncome extends AppCompatActivity {
         setContentView(R.layout.activity_expense_and_income);
     }
 
+    public void displayExpense(View view) {
+        Intent intent = new Intent(this, ExpenseForm.class);
+        startActivity(intent);
+    }
 }
