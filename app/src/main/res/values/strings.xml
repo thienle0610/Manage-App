@@ -24,5 +24,6 @@
     <string name="available">Available:</string>
     <string name="yes">Yes</string>
     <string name="no">NO</string>
+    <string name="plus">+</string>
 
 </resources>
