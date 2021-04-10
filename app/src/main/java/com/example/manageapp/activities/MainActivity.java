@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendTracker (View view){
-        Intent intent = new Intent(this, ExpenseMain.class);
-        startActivity(intent);
+        Intent intent1 = new Intent(this, ExpenseMain.class);
+        startActivity(intent1);
     }
 
 
