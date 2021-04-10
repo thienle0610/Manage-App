@@ -40,12 +40,12 @@ public class ExpenseForm extends AppCompatActivity {
         TextView et_date;
         ListView lv_expenseList;
 
-        mDisplayDate = findViewById(R.id.date2);
-        btn_add = findViewById(R.id.button_add2);
-        et_name = findViewById(R.id.et_name2);
-        et_cate = findViewById(R.id.et_cate2);
-        et_amount = findViewById(R.id.et_amount2);
-        et_date = findViewById(R.id.date2);
+        mDisplayDate = findViewById(R.id.date);
+        btn_add = findViewById(R.id.button_add);
+        et_name = findViewById(R.id.et_name);
+        et_cate = findViewById(R.id.et_cate);
+        et_amount = findViewById(R.id.et_amount);
+        et_date = findViewById(R.id.date);
         lv_expenseList = findViewById(R.id.list);
 
         dataBaseHelper = new DataBaseHelper(getApplicationContext());

@@ -59,7 +59,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
             mIdCategory = (TextView) view.findViewById(R.id.category);
-            mIdDate = (TextView) view.findViewById(R.id.date2);
+            mIdDate = (TextView) view.findViewById(R.id.date);
         }
 
         @Override
