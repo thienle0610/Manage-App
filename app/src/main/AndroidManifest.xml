@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ManageApp">
-        <activity android:name=".activities.ExpenseForm"></activity>
+        <activity android:name=".activities.ExpenseMain"></activity>
+        <activity android:name=".activities.ExpenseForm" />
         <activity android:name=".activities.ExpenseAndIncome" />
-        <activity android:name=".activities.ExpenseMainActivity" />
         <activity
             android:name=".activities.CreateNotes"
             android:screenOrientation="portrait"

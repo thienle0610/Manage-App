@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.manageapp.R;
 
-public class ExpenseMainActivity extends AppCompatActivity {
+public class ExpenseMain extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,13 +16,8 @@ public class ExpenseMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_expense_main);
     }
 
-    public void sendTracker(View v){
-        Intent in = new Intent(this, ExpenseMainActivity.class);
-        startActivity(in);
-    }
-
-    public void displayTracker(View view) {
-        Intent in = new Intent(this, ExpenseAndIncome.class);
-        startActivity(in);
+    public void displayTracker (View view){
+        Intent intent = new Intent(this, ExpenseAndIncome.class);
+        startActivity(intent);
     }
 }

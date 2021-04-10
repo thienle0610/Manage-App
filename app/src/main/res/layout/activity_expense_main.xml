@@ -4,33 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ExpenseMainActivity">
+    tools:context=".activities.ExpenseMain">
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.manageapp.activities.ExpenseList"
+        android:layout_width="match_parent"
+        android:layout_height="591dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/addExpenseBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="displayTracker"
         android:text="@string/plus"
         android:textSize="36sp"
+        android:layout_marginEnd="20dp"
+        android:onClick="displayTracker"
+        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.879"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.942" />
-
-    <fragment
-        android:id="@+id/fragment"
-        android:name="com.example.manageapp.activities.ExpenseList"
-        android:layout_width="411dp"
-        android:layout_height="591dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintTop_toBottomOf="@id/fragment"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
