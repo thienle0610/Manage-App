@@ -36,19 +36,14 @@ public class ExpenseForm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expense_form);
+        ImageView imageBack2 = findViewById(R.id.imageBack2);
+        imageBack2.setOnClickListener(v -> onBackPressed());
 
         Button btn_add;
         EditText et_name, et_cate, et_amount;
         TextView et_date;
         ListView lv_expenseList;
 
-        ImageView imageBack2 = findViewById(R.id.imageBack2);
-        imageBack2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
 
         mDisplayDate = findViewById(R.id.date);
         btn_add = findViewById(R.id.button_add);

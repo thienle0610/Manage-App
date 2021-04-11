@@ -42,7 +42,8 @@ public class Income extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_income);
-
+        ImageView imageBack3 = findViewById(R.id.imageBack3);
+        imageBack3.setOnClickListener(v -> onBackPressed());
 
 
         mDisplayDate = findViewById(R.id.date2);
@@ -65,15 +66,9 @@ public class Income extends AppCompatActivity {
             }
         };
 
-        ImageView imageBack3 = findViewById(R.id.imageBack3);
-        imageBack3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
 
     }
+
 
     public void submit2(View view) {
         CustomerModel customerModel;

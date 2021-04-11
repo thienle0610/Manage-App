@@ -16,17 +16,15 @@ public class ExpenseMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expense_main);
 
-        ImageView imageBack1 = findViewById(R.id.imageBack1);
-        imageBack1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
     }
 
     public void displayTracker (View view){
         Intent intent = new Intent(this, ExpenseAndIncome.class);
         startActivity(intent);
     }
+    public void turnHome (View view){
+        Intent intent1 = new Intent(this, MainActivity.class);
+        startActivity(intent1);
+    }
+
 }
