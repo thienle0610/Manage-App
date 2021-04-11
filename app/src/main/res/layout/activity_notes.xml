@@ -84,13 +84,23 @@
         android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
+        <ImageView
+            android:id="@+id/imageHome"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:contentDescription="@string/app_name"
+            app:srcCompat="@drawable/ic_home"
+            android:onClick="backHome"
+            app:tint="@color/colorIcons" />
+
     <ImageView
         android:id="@+id/imageAddNote"
         android:layout_width="23dp"
         android:layout_height="23dp"
         android:contentDescription="@string/app_name"
         app:srcCompat="@drawable/ic_add_outline"
-        app:tint="@color/colorIcons" />
+        app:tint="@color/colorIcons"
+        android:layout_marginStart="12dp"/>
 
     </LinearLayout>
 

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,8 @@ public class Income extends AppCompatActivity {
     EditText et_name2, et_cate2, et_amount2;
     TextView et_date2;
     ListView lv_incomeList;
+
+
 
     private static final String TAG = "Income";
     DataBaseHelper dataBaseHelper;
@@ -61,6 +64,14 @@ public class Income extends AppCompatActivity {
                mDisplayDate.setText("" + day + "/" + month + "/" + year);
             }
         };
+
+        ImageView imageBack3 = findViewById(R.id.imageBack3);
+        imageBack3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
     }
 

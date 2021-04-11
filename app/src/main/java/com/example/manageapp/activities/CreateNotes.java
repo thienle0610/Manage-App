@@ -256,7 +256,7 @@ public class CreateNotes extends AppCompatActivity {
             if(dialogDeleteNote.getWindow() != null){
                 dialogDeleteNote.getWindow().setBackgroundDrawable(new ColorDrawable(0));
             }
-            view.findViewById(R.id.textDeleteNote).setOnClickListener(new View.OnClickListener() {
+            view.findViewById(R.id.buttonDeleteNote).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     class DeleteNoteTask extends AsyncTask<Void, Void, Void>{
@@ -282,7 +282,7 @@ public class CreateNotes extends AppCompatActivity {
                 }
             });
 
-            view.findViewById(R.id.textCancel).setOnClickListener(new View.OnClickListener() {
+            view.findViewById(R.id.buttonCancel).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     dialogDeleteNote.dismiss();

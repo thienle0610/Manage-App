@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +41,14 @@ public class ExpenseForm extends AppCompatActivity {
         EditText et_name, et_cate, et_amount;
         TextView et_date;
         ListView lv_expenseList;
+
+        ImageView imageBack2 = findViewById(R.id.imageBack2);
+        imageBack2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         mDisplayDate = findViewById(R.id.date);
         btn_add = findViewById(R.id.button_add);

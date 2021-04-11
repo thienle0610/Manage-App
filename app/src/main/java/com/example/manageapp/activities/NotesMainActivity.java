@@ -55,6 +55,10 @@ public class NotesMainActivity extends AppCompatActivity implements NoteListsVie
         getNote(REQUEST_CODE_SHOW_NOTE, false);
     }
 
+    public void backHome(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
     @Override
     public void onNoteClicked(Note note, int position) {
         noteClickedPosition = position;
