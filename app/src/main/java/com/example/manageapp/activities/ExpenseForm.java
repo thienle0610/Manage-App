@@ -68,6 +68,10 @@ public class ExpenseForm extends AppCompatActivity {
                 }
 
                 boolean success = dataBaseHelper.addOne(customerModel);
+                int numBl = dataBaseHelper.getBalance();
+
+                int newnumBL =numBl - Integer.parseInt(et_amount.getText().toString());
+                dataBaseHelper.addTwo(newnumBL);
 
                 Toast.makeText(ExpenseForm.this, "Success", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ExpenseForm.this, ExpenseMain.class);

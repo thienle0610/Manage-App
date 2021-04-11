@@ -77,7 +77,11 @@ public class Income extends AppCompatActivity {
         }
 
         boolean success = dataBaseHelper.addOne(customerModel);
+        DataBaseHelper dataBaseHelper2 = new DataBaseHelper(this);
+        int numBl = dataBaseHelper2.getBalance();
 
+        int newnumBL =numBl + Integer.parseInt(et_amount2.getText().toString());
+        dataBaseHelper.addTwo(newnumBL);
         Toast.makeText(Income.this, "Success", Toast.LENGTH_SHORT).show();
 
         Intent intent = new Intent(Income.this, ExpenseMain.class);

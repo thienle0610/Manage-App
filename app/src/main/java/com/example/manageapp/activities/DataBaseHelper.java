@@ -20,6 +20,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CUSTOMER_DAY = "CUSTOMER_DAY";
     public static final String COLUMN_CUSTOMER_MONTH = "CUSTOMER_MONTH";
     public static final String COLUMN_CUSTOMER_YEAR = "CUSTOMER_YEAR";
+    public static final String BALANCE_TABLE = "BALANCE_TABLE";
+    public static final String COLUMN_CUSTOMER_AMOUNT2 = "CUSTOMER_AMOUNT2";
+
 
     public DataBaseHelper(@Nullable Context context) {
         super(context, "customer.db", null, 1);
@@ -31,13 +34,29 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     String createTableStatement = "CREATE TABLE " + CUSTOMER_TABLE + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COLUMN_CUSTOMER_NAME + " TEXT, " + COLUMN_CUSTOMER_CATEGORY + " TEXT, " + COLUMN_CUSTOMER_AMOUNT + " INT, " + COLUMN_CUSTOMER_DAY + " INT, " + COLUMN_CUSTOMER_MONTH + " INT, " + COLUMN_CUSTOMER_YEAR + " INT)";
 
-    db.execSQL(createTableStatement);
+        String createTableStatement2 = "CREATE TABLE " + BALANCE_TABLE + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_CUSTOMER_AMOUNT2 + " INT)";
+
+        db.execSQL(createTableStatement);
+        db.execSQL(createTableStatement2);
         Log.d("test", "DataBaseHelper: create table");
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    public void amountBalance (){
+        SQLiteDatabase bl = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+
+        cv.put(COLUMN_CUSTOMER_AMOUNT2, 0);
+
+
+        long insert = bl.insert(BALANCE_TABLE, null, cv);
     }
 
     public boolean addOne(CustomerModel customerModel){
@@ -97,5 +116,49 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return returnList;
+    }
+    public boolean addTwo(int amount){
+        SQLiteDatabase bl = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_CUSTOMER_AMOUNT2, amount);
+
+        long insert = bl.update(BALANCE_TABLE, cv, "ID = 1", null);
+        bl.close();
+
+        if (insert == -1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public int getBalance()
+    {
+
+        String queryString = "SELECT * FROM " + BALANCE_TABLE;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(queryString, null);
+        int customerAmount = 0;
+        if (cursor.moveToFirst())
+        {
+
+            int customerID = cursor.getInt(0);
+
+            customerAmount = cursor.getInt(1);
+
+        }
+        else
+        {
+
+        }
+        cursor.close();
+        db.close();
+        return customerAmount;
     }
 }
