@@ -21,16 +21,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void sendNote (View view){
+    public void sendNote(View view) {
         Intent intent = new Intent(this, NotesMainActivity.class);
         startActivity(intent);
     }
 
-    public void sendTracker (View view){
+    public void sendTracker(View view) {
         Intent intent1 = new Intent(this, ExpenseMain.class);
         startActivity(intent1);
     }
-
-
-
 }

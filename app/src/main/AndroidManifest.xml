@@ -22,8 +22,7 @@
             android:name=".activities.NotesMainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".activities.income" />
-        <activity android:name=".activities.adding" />
+        <activity android:name=".activities.Income" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

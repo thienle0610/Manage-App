@@ -3,6 +3,7 @@ package com.example.manageapp.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -69,6 +70,8 @@ public class ExpenseForm extends AppCompatActivity {
                 boolean success = dataBaseHelper.addOne(customerModel);
 
                 Toast.makeText(ExpenseForm.this, "Success", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ExpenseForm.this, ExpenseMain.class);
+                startActivity(intent);
 
                 finish();
             }
@@ -102,4 +105,6 @@ public class ExpenseForm extends AppCompatActivity {
 
 
     }
+
+
 }

@@ -83,10 +83,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 int customerMonth = cursor.getInt(5);
                 int customerYear = cursor.getInt(6);
 
+                Log.d("Databashelper", " "+ customerID + " " + customerName + " " +customerCategory + " " + customerAmount + " "+ customerDay + " " + customerMonth + " " + customerYear);
+
                 CustomerModel newCustomer = new CustomerModel(customerID, customerName, customerCategory, customerAmount, customerDay, customerMonth, customerYear);
                 returnList.add(newCustomer);
 
-            } while (cursor.moveToFirst());
+            } while (cursor.moveToNext());
         }
         else
         {
