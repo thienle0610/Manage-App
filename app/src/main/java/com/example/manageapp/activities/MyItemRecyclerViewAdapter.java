@@ -37,6 +37,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         holder.mIdView.setText(mValues.get(position).id);
         holder.mContentView.setText(mValues.get(position).content);
         holder.mIdCategory.setText(mValues.get(position).category);
+        holder.mIdAmount.setText(mValues.get(position).amount);
         holder.mIdDate.setText(mValues.get(position).date);
     }
 
@@ -52,6 +53,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public DummyItem mItem;
         public final TextView mIdCategory;
         public final TextView mIdDate;
+        public final TextView mIdAmount;
 
         public ViewHolder(View view) {
             super(view);
@@ -59,6 +61,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
             mIdCategory = (TextView) view.findViewById(R.id.category);
+            mIdAmount = (TextView) view.findViewById(R.id.amount);
             mIdDate = (TextView) view.findViewById(R.id.date);
         }
 
