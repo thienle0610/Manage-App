@@ -62,7 +62,7 @@ public class ExpenseForm extends AppCompatActivity {
                 CustomerModel customerModel;
 
                 try {
-                    customerModel = new CustomerModel(-1, et_name.getText().toString(), et_cate.getText().toString(), Integer.parseInt(et_amount.getText().toString()), day, month, year);
+                    customerModel = new CustomerModel(-1, et_name.getText().toString(), et_cate.getText().toString(), (-Integer.parseInt(et_amount.getText().toString())), day, month, year);
 
                     Toast.makeText(ExpenseForm.this, customerModel.toString(), Toast.LENGTH_SHORT).show();
                 }
