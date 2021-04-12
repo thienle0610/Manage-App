@@ -103,8 +103,8 @@ public class Income extends AppCompatActivity {
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog dialog = new DatePickerDialog(Income.this, onDateSetListener, year, month, day);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        DatePickerDialog dialog = new DatePickerDialog(Income.this,R.style.CalendarBarTheme, onDateSetListener, year, month, day);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#fefcff")));
         dialog.show();
     }
 }

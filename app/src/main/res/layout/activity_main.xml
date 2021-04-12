@@ -128,11 +128,11 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="140dp"
+                android:layout_marginTop="152dp"
                 android:background="@drawable/footer_background"
                 android:padding="20dp"
                 app:layout_constraintEnd_toEndOf="@id/layoutNote"
-                app:layout_constraintHorizontal_bias="0.541"
+                app:layout_constraintHorizontal_bias="0.481"
                 app:layout_constraintStart_toStartOf="@id/layoutExpense"
                 app:layout_constraintTop_toBottomOf="@id/layoutExpense">
 

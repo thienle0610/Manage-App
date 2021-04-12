@@ -93,8 +93,8 @@ public class ExpenseForm extends AppCompatActivity {
                 int month = cal.get(Calendar.MONTH);
                 int day = cal.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog dialog = new DatePickerDialog(ExpenseForm.this, onDateSetListener, year, month, day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                DatePickerDialog dialog = new DatePickerDialog(ExpenseForm.this,R.style.CalendarBarTheme, onDateSetListener, year, month, day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#fefcff")));
                 dialog.show();
             }
         });
